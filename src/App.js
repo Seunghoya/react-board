@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import { Board } from './pages/Board/Board';
 import { WriteArticle } from './pages/WriteArticle/WriteArticle';
+import { ViewArticle } from './pages/ViewArticle/ViewArticle';
 
 function App() {
 
@@ -17,6 +18,9 @@ function App() {
           </Route>
           <Route path='/writeArticle'>
             <WriteArticle/>
+          </Route>
+          <Route path='/viewArticle'>
+            <ViewArticle/>
           </Route>
         </Switch>
       </BrowserRouter>
