@@ -15,6 +15,8 @@ export const WriteArticle = () => {
     date: ""
   })
   const [errorMessage, setErrorMessage] = useState('')
+  const [isOpenModal, setIsOpenModal] = useState(false)
+
   const titleChangeHandler = (e) => {
     const title = e.target.value
     const { content, writer, pw } = article
@@ -38,7 +40,7 @@ export const WriteArticle = () => {
   }
   const clickHandler = () => {
     console.log(article)
-    setErrorMessage('제목을 입력하세요')
+    // setErrorMessage('제목을 입력하세요')
   }
 
   const nowDate = `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`
