@@ -24,6 +24,7 @@ export const BoardHeadTitle = styled.li`
 `
 export const BoardHeadWriter = styled.li`
   width: 20%;
+  min-width: 100px;
   font-weight: 800;
 `
 export const BoardHeadDate = styled.li`
