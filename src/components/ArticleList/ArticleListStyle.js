@@ -28,7 +28,9 @@ export const Title = styled.li`
 `
 export const Writer = styled.li`
   width: 20%;
+  min-width: 100px;
 `
 export const Date = styled.li`
   width: 10%;
+  min-width: 100px;
 `

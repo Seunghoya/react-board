@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { dummyArticleList } from '../../dummy/dummyArticleList';
 import { useHistory } from 'react-router-dom';
@@ -7,28 +7,41 @@ import { ArticleListContainer, Id, Title, Writer, Date } from './ArticleListStyl
 export const ArticleList = () => {
   const history = useHistory()
   
-  const [articleList, setArticleList] = useState('')
+  const [articleList, setArticleList] = useState([])
 
   // 서버에서 게시글 리스트 받아오는 함수
-  const getArticleList = () => {
-    axios.get('http://localhost:4000/')
-      .then((data) => {
-        console.log(data)
-        setArticleList(data)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-    
-  }
+  useEffect(() => {
+    const getArticleList = async () => {
+      await axios.get('http://localhost:4000/article')
+        .then((result) => {
+          setArticleList(result.data.data)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
+    getArticleList()
+  }, [])
+  
+  console.log(articleList)
   // 게시글 클릭했을 때 게시글 뷰 페이지로 이동하는 함수
   const ClickHandler = (e) => {
     console.log(e)
-    history.push('/viewArticle')
-    
+    history.push({
+      pathname: `/viewArticle/${e.id}`,
+      state: {
+        ArticleDate: {
+          id: e.id,
+          title: e.title,
+          writer: e.writer,
+          content: e.content,
+          createdAt: e.createdAt
+        }
+      }
+    })
   }
   
-  const sortList = dummyArticleList.sort((a, b) => b.id - a.id)
+  const sortList = articleList.sort((a, b) => b.id - a.id)
   const list = sortList.map((data) => {
     
     return (
@@ -43,7 +56,7 @@ export const ArticleList = () => {
           {data.writer}
         </Writer>
         <Date>
-          {data.date}
+          {data.createdAt}
         </Date>
       </ArticleListContainer>
     )

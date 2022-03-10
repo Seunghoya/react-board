@@ -28,5 +28,6 @@ export const BoardHeadWriter = styled.li`
 `
 export const BoardHeadDate = styled.li`
   width: 10%;
+  min-width: 100px;
   font-weight: 800;
 `

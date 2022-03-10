@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { Button } from '../../components/Button/Button';
 import { ViewContainer, 
   ViewHeaderContainer, 
@@ -11,6 +12,11 @@ import { ViewContainer,
 import { dummyContent } from '../../dummy/dummyContent';
 export const ViewArticle = () => {
 
+
+  const location = useLocation();
+  const ArticleDate = location.state.ArticleDate;
+
+  console.log(ArticleDate)
   const reqEdit = () => {
     console.log('수정버튼 클릭')
   }
@@ -22,13 +28,13 @@ export const ViewArticle = () => {
   return (
     <ViewContainer>
       <ViewHeaderContainer>
-        <Writer>작성자</Writer>
-        <Title>제목</Title>
+        <Writer>{ArticleDate.writer}</Writer>
+        <Title>{ArticleDate.title}</Title>
         <ViewCount>조회수</ViewCount>
-        <Date>작성일</Date>
+        <Date>{ArticleDate.createdAt}</Date>
       </ViewHeaderContainer>
       <ContentContainer>
-        <div>{dummyContent}</div>
+        <div>{ArticleDate.content}</div>
       </ContentContainer>
       <ButtonContainer>
         <Button style={{'margin':'10px'}} onClick={reqEdit}>수정</Button>

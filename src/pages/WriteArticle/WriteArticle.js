@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import { Button } from '../../components/Button/Button';
 import { 
   WriteArticleContainer, 
@@ -11,35 +13,39 @@ export const WriteArticle = () => {
     title: "",
     content: "",
     writer: "",
-    pw: "",
-    date: ""
   })
   const [errorMessage, setErrorMessage] = useState('')
   const [isOpenModal, setIsOpenModal] = useState(false)
 
+  const history = useHistory()
+
   const titleChangeHandler = (e) => {
     const title = e.target.value
-    const { content, writer, pw } = article
+    const { content, writer } = article
     setArticle({
       title: title,
       content: content,
       writer: writer,
-      pw: pw,
-      date: nowDate
     })
   }
   const contentChangeHandler = (e) => {
-    const { title, writer, pw } = article
+    const { title, writer } = article
     setArticle({
       title: title,
       content: e.target.value,
       writer: writer,
-      pw: pw,
-      date: nowDate
     })
   }
   const clickHandler = () => {
     console.log(article)
+    axios.post('http://localhost:4000/article', article)
+      .then((data) => {
+        console.log(data)
+        history.push('/');
+      })
+      .catch((err) => {
+        console.log(err)
+      })
     // setErrorMessage('제목을 입력하세요')
   }
 
