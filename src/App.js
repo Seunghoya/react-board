@@ -4,7 +4,7 @@ import './App.css';
 import { Board } from './pages/Board/Board';
 import { WriteArticle } from './pages/WriteArticle/WriteArticle';
 import { ViewArticle } from './pages/ViewArticle/ViewArticle';
-
+import { Edit } from './pages/Edit/Edit'
 function App() {
 
 
@@ -21,6 +21,9 @@ function App() {
           </Route>
           <Route path='/viewArticle'>
             <ViewArticle/>
+          </Route>
+          <Route path='/edit'>
+            <Edit/>
           </Route>
         </Switch>
       </BrowserRouter>

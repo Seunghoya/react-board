@@ -19,23 +19,13 @@ export const WriteArticle = () => {
 
   const history = useHistory()
 
-  const titleChangeHandler = (e) => {
-    const title = e.target.value
-    const { content, writer } = article
+  const changeHandler = (e) => {
     setArticle({
-      title: title,
-      content: content,
-      writer: writer,
+      ...article,
+      [e.target.name]: e.target.value
     })
   }
-  const contentChangeHandler = (e) => {
-    const { title, writer } = article
-    setArticle({
-      title: title,
-      content: e.target.value,
-      writer: writer,
-    })
-  }
+  console.log(article)
   const clickHandler = () => {
     console.log(article)
     axios.post('http://localhost:4000/article', article)
@@ -53,11 +43,16 @@ export const WriteArticle = () => {
 
   return (
     <WriteArticleContainer>
-      <div>제목</div>
-      <WriteTitleSection onChange={titleChangeHandler}/>
+
+      <WriteTitleSection 
+        onChange={changeHandler}
+        name="title"
+      />
       <div>{errorMessage}</div>
-      내용
-      <WriteContentSection onChange={contentChangeHandler}/>
+      <WriteContentSection 
+        onChange={changeHandler}
+        name="content"
+      />
       <ButtonContainer onClick={clickHandler}>
         <Button>작성완료</Button>
       </ButtonContainer>

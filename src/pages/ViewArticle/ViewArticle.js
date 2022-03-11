@@ -17,13 +17,19 @@ export const ViewArticle = () => {
   const location = useLocation();
   const ArticleDate = location.state.ArticleDate;
 
-  console.log(ArticleDate)
+  // console.log(ArticleDate)
 
   const goback = () => {
     history.push('/')
   }
   const reqEdit = () => {
-    console.log('수정버튼 클릭')
+    console.log('수정버튼 클릭', ArticleDate)
+    history.push({
+      pathname: `/edit/${ArticleDate.id}`,
+      state: {
+        ArticleDate: ArticleDate
+      }
+    });
   }
 
   const reqDelete = () => {
