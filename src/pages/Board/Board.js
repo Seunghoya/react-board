@@ -35,7 +35,10 @@ export const Board = () => {
   return (
     <BoardContainer>
       <h1>게시판</h1>
-      <Search/>
+      <Search 
+        articleList={articleList}
+        setArticleList={setArticleList}
+      />
       <BoardHead/>
       <ArticleList articleList={articleList}/>
       <ButtonContainer>
