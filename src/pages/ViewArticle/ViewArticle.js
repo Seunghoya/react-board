@@ -29,7 +29,7 @@ export const ViewArticle = () => {
 
     return () => {
     }
-  }, [])
+  }, [ArticleDate])
 
   console.log(ArticleDate)
   const goback = () => {
@@ -61,7 +61,7 @@ export const ViewArticle = () => {
       <ViewHeaderContainer>
         <Writer>{ArticleDate.writer}</Writer>
         <Title>{ArticleDate.title}</Title>
-        <ViewCount>조회수: {ArticleDate.viewCnt}</ViewCount>
+        <ViewCount>조회수: {ArticleDate.viewCnt + 1}</ViewCount>
         <Date>{ArticleDate.createdAt}</Date>
       </ViewHeaderContainer>
       <ContentContainer>

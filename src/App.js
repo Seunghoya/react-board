@@ -6,6 +6,7 @@ import { Board } from './pages/Board/Board';
 import { WriteArticle } from './pages/WriteArticle/WriteArticle';
 import { ViewArticle } from './pages/ViewArticle/ViewArticle';
 import { Edit } from './pages/Edit/Edit'
+import { Footer } from './components/Footer/Footer';
 function App() {
 
 
@@ -27,6 +28,7 @@ function App() {
             <Edit/>
           </Route>
         </Switch>
+        <Footer/>
       </BrowserRouter>
     </div>
   );
