@@ -52,7 +52,7 @@ export const WriteArticle = () => {
     else {
       axios.post('http://localhost:4000/article', article)
       .then((data) => {
-        console.log(data)
+        // console.log(data)
         history.push('/board');
       })
       .catch((err) => {

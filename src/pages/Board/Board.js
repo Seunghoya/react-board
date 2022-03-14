@@ -13,11 +13,10 @@ export const Board = () => {
   const [page, Setpage] = useState(1)
 
   const writeButtonClick = () => {
-    console.log('작성하기 버튼 클릭')
+    // console.log('작성하기 버튼 클릭')
     history.push('/writeArticle');
     
   }
-  console.log('렌더링')
   // 서버에서 게시글 리스트 받아오는 함수
   useEffect(() => {
     const getArticleList = async () => {

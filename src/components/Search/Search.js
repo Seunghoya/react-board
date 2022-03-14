@@ -28,7 +28,7 @@ export const Search = ({ articleList, setArticleList }) => {
     if (e.key === 'Enter') {
       // 필터 함수 추가
       filterArticleList()
-      console.log(inputValue, '엔터키 입력')
+      // console.log(inputValue, '엔터키 입력')
     }
   };
 

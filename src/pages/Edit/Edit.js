@@ -3,16 +3,15 @@ import { useHistory, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { EditContainer, EditTitleSection, EditContentSection, ButtonContainer } from './EditStyle'
 import { Button } from '../../components/Button/Button';
+import { Modal } from '../../components/Modal/Modal';
 
 export const Edit = () => {
-
-
   const history = useHistory()
   const location = useLocation();
   const ArticleDate = location.state.ArticleDate;
 
   const { title, content, writer } = ArticleDate
-  
+  const [isOpenModal, setIsOpenModal] = useState(false)
   const [article, setArticle] = useState({
     title: title,
     content: content,
@@ -26,23 +25,34 @@ export const Edit = () => {
       [e.target.name]: e.target.value,
     })
   }
+
   const goback = () => {
     history.goBack()
   }
   const clickHandler = () => {
-    console.log(article)
-    axios.put(`http://localhost:4000/article/${ArticleDate.id}`, article)
+    const { title, content } = article
+
+    if (title.length === 0 || content.length === 0){
+      setErrorMessage("입력하신 내용을 확인해주세요")
+      modalOpenHandler()
+    }
+    else {
+      axios.put(`http://localhost:4000/article/${ArticleDate.id}`, article)
       .then((data) => {
-        console.log(data)
+        // console.log(data)
         history.push('/board');
       })
       .catch((err) => {
         console.log(err)
       })
-    // setErrorMessage('제목을 입력하세요')
+    }
+  }
+  const modalOpenHandler = () => {
+    setIsOpenModal(!isOpenModal)
   }
   return (
     <EditContainer>
+      {isOpenModal ? <Modal errorMessage={errorMessage} modalOpenHandler={modalOpenHandler}/> : null}
       <EditTitleSection 
         onChange={changeHandler}
         value={article.title}

@@ -21,7 +21,7 @@ export const ViewArticle = () => {
   useEffect(() => {
     axios.patch(`http://localhost:4000/article/${ArticleDate.id}`)
       .then((data) => {
-        console.log('조회수 증가')
+        // console.log('조회수 증가')
       })
       .catch((err) =>[
         console.log(err)
@@ -31,7 +31,7 @@ export const ViewArticle = () => {
     }
   }, [ArticleDate])
 
-  console.log(ArticleDate)
+  // console.log(ArticleDate)
   const goback = () => {
     history.push('/board')
   }

@@ -7,10 +7,9 @@ import { ArticleListContainer, Id, Title, Writer, Date, ViewCnt } from './Articl
 export const ArticleList = ({ articleList }) => {
   const history = useHistory()
   
-  console.log(articleList)
+  // console.log(articleList)
   // 게시글 클릭했을 때 게시글 뷰 페이지로 이동하는 함수
   const ClickHandler = (e) => {
-    console.log(e)
     history.push({
       pathname: `/viewArticle/${e.id}`,
       state: {
