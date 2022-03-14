@@ -5,7 +5,7 @@ export const ViewContainer = styled.div`
   max-width: 1300px;
   margin-top: 30px;
   margin-bottom: 30px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
   padding: 30px;

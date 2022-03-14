@@ -33,7 +33,6 @@ export const Board = () => {
 
   return (
     <BoardContainer>
-      <h1>게시판</h1>
       <Search 
         articleList={articleList}
         setArticleList={setArticleList}
