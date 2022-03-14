@@ -7,6 +7,27 @@ export const WriteArticleContainer = styled.div`
   flex-direction: column;
   padding: 30px;
 `
+export const WriterPasswordContainer = styled.div`
+  display: flex;
+  margin-bottom: 20px;
+`
+
+export const WriterSection = styled.input.attrs({
+  placeholder: '이름',
+  type: 'text'
+})`
+  font-size: 20px;
+  padding: 3px;
+  margin-right: 20px;
+`
+export const PasswordSection = styled.input.attrs({
+  placeholder: '비밀번호',
+  type: 'password'
+})`
+  font-size: 20px;
+  padding: 3px;
+  margin-left: 20px;
+`
 export const WriteTitleSection = styled.input.attrs({
   placeholder: '제목',
   type: 'text'
