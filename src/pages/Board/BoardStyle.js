@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const BoardContainer = styled.div`
   width: 70%;
-  border: 1px solid black;
+  max-width: 1300px;
+  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
   padding: 30px;

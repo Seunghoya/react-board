@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
+import { Header } from './components/Header/Header';
 import { Board } from './pages/Board/Board';
 import { WriteArticle } from './pages/WriteArticle/WriteArticle';
 import { ViewArticle } from './pages/ViewArticle/ViewArticle';
@@ -10,10 +11,10 @@ function App() {
 
   return (
     <div className='App'>
-      React Board
       <BrowserRouter>
+        <Header/>
         <Switch>
-          <Route exact path='/'>
+          <Route exact path='/board'>
             <Board />
           </Route>
           <Route path='/writeArticle'>

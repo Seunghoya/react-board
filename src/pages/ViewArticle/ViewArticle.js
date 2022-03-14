@@ -20,7 +20,7 @@ export const ViewArticle = () => {
   // console.log(ArticleDate)
 
   const goback = () => {
-    history.push('/')
+    history.push('/board')
   }
   const reqEdit = () => {
     console.log('수정버튼 클릭', ArticleDate)
@@ -36,7 +36,7 @@ export const ViewArticle = () => {
     axios.delete(`http://localhost:4000/article/${ArticleDate.id}`)
       .then((data) => {
         console.log(data)
-        history.push('/');
+        history.push('/board');
       })
       .catch((err) => {
         console.log(err)

@@ -53,7 +53,7 @@ export const WriteArticle = () => {
       axios.post('http://localhost:4000/article', article)
       .then((data) => {
         console.log(data)
-        history.push('/');
+        history.push('/board');
       })
       .catch((err) => {
         console.log(err)
@@ -69,6 +69,7 @@ export const WriteArticle = () => {
 
   return (
     <WriteArticleContainer>
+      <h1>게시글 작성</h1>
       {isOpenModal ? <Modal errorMessage={errorMessage} modalOpenHandler={modalOpenHandler}/> : null}
       <WriterPasswordContainer>
         <WriterSection 

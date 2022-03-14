@@ -32,7 +32,7 @@ export const Edit = () => {
     axios.patch(`http://localhost:4000/article/${ArticleDate.id}`, article)
       .then((data) => {
         console.log(data)
-        history.push('/');
+        history.push('/board');
       })
       .catch((err) => {
         console.log(err)

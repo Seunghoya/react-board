@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const WriteArticleContainer = styled.div`
   width: 70%;
+  max-width: 1300px;
   border: 1px solid black;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   padding: 30px;

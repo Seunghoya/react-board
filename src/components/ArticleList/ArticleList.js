@@ -4,24 +4,8 @@ import { dummyArticleList } from '../../dummy/dummyArticleList';
 import { useHistory } from 'react-router-dom';
 import { ArticleListContainer, Id, Title, Writer, Date } from './ArticleListStyle'
 
-export const ArticleList = () => {
+export const ArticleList = ({ articleList}) => {
   const history = useHistory()
-  
-  const [articleList, setArticleList] = useState([])
-
-  // 서버에서 게시글 리스트 받아오는 함수
-  useEffect(() => {
-    const getArticleList = async () => {
-      await axios.get('http://localhost:4000/article')
-        .then((result) => {
-          setArticleList(result.data.data)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    }
-    getArticleList()
-  }, [])
   
   console.log(articleList)
   // 게시글 클릭했을 때 게시글 뷰 페이지로 이동하는 함수
