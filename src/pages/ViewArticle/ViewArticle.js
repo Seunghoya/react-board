@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import { Button } from '../../components/Button/Button';
 import { ViewContainer, 
@@ -18,12 +18,24 @@ export const ViewArticle = () => {
   const ArticleDate = location.state.ArticleDate;
 
   // console.log(ArticleDate)
+  useEffect(() => {
+    axios.patch(`http://localhost:4000/article/${ArticleDate.id}`)
+      .then((data) => {
+        console.log('조회수 증가')
+      })
+      .catch((err) =>[
+        console.log(err)
+      ])
 
+    return () => {
+    }
+  }, [])
+
+  console.log(ArticleDate)
   const goback = () => {
     history.push('/board')
   }
   const reqEdit = () => {
-    console.log('수정버튼 클릭', ArticleDate)
     history.push({
       pathname: `/edit/${ArticleDate.id}`,
       state: {
@@ -35,7 +47,6 @@ export const ViewArticle = () => {
   const reqDelete = () => {
     axios.delete(`http://localhost:4000/article/${ArticleDate.id}`)
       .then((data) => {
-        console.log(data)
         history.push('/board');
       })
       .catch((err) => {
@@ -50,7 +61,7 @@ export const ViewArticle = () => {
       <ViewHeaderContainer>
         <Writer>{ArticleDate.writer}</Writer>
         <Title>{ArticleDate.title}</Title>
-        <ViewCount>조회수</ViewCount>
+        <ViewCount>조회수: {ArticleDate.viewCnt}</ViewCount>
         <Date>{ArticleDate.createdAt}</Date>
       </ViewHeaderContainer>
       <ContentContainer>

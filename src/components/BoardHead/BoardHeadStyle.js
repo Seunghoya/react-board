@@ -19,7 +19,7 @@ export const BoardHeadId = styled.li`
   font-weight: 800;
 `
 export const BoardHeadTitle = styled.li`
-  width: 60%;
+  width: 50%;
   font-weight: 800;
 `
 export const BoardHeadWriter = styled.li`
@@ -28,6 +28,11 @@ export const BoardHeadWriter = styled.li`
   font-weight: 800;
 `
 export const BoardHeadDate = styled.li`
+  width: 10%;
+  min-width: 100px;
+  font-weight: 800;
+`
+export const BoardViewCnt = styled.li`
   width: 10%;
   min-width: 100px;
   font-weight: 800;

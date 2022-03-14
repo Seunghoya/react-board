@@ -22,7 +22,7 @@ export const Id = styled.li`
   width: 10%;
 `
 export const Title = styled.li`
-  width: 60%;
+  width: 50%;
   font-weight: 800;
 
 `
@@ -31,6 +31,10 @@ export const Writer = styled.li`
   min-width: 100px;
 `
 export const Date = styled.li`
+  width: 10%;
+  min-width: 100px;
+`
+export const ViewCnt = styled.li`
   width: 10%;
   min-width: 100px;
 `

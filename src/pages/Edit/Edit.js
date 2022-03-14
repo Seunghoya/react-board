@@ -26,10 +26,12 @@ export const Edit = () => {
       [e.target.name]: e.target.value,
     })
   }
-  console.log(article)
+  const goback = () => {
+    history.goBack()
+  }
   const clickHandler = () => {
     console.log(article)
-    axios.patch(`http://localhost:4000/article/${ArticleDate.id}`, article)
+    axios.put(`http://localhost:4000/article/${ArticleDate.id}`, article)
       .then((data) => {
         console.log(data)
         history.push('/board');
@@ -52,8 +54,9 @@ export const Edit = () => {
         value={article.content}
         name="content"
       />
-      <ButtonContainer onClick={clickHandler}>
-        <Button>작성완료</Button>
+      <ButtonContainer >
+        <Button style={{'margin':'10px'}} onClick={goback}>돌아가기</Button>
+        <Button style={{'margin':'10px'}} onClick={clickHandler}>수정하기</Button>
       </ButtonContainer>
     </EditContainer>
   )

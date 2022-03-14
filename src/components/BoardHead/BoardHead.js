@@ -4,7 +4,8 @@ import {
   BoardHeadId, 
   BoardHeadTitle,
   BoardHeadWriter, 
-  BoardHeadDate } from './BoardHeadStyle'
+  BoardHeadDate,
+  BoardViewCnt } from './BoardHeadStyle'
 
 export const BoardHead = () => {
 
@@ -14,6 +15,7 @@ export const BoardHead = () => {
       <BoardHeadTitle>제목</BoardHeadTitle>
       <BoardHeadWriter>글쓴이</BoardHeadWriter>
       <BoardHeadDate>등록일</BoardHeadDate>
+      <BoardViewCnt>조회수</BoardViewCnt>
     </BoardHeadContainer>
   )
 }

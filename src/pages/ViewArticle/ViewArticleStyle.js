@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const ViewContainer = styled.div`
   width: 70%;
+  max-width: 1300px;
+  margin-top: 30px;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
@@ -11,7 +13,7 @@ export const ViewContainer = styled.div`
 export const ViewHeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   background-color: rgba(0, 0, 255, 0.3);
   font-size: 15px;
@@ -19,11 +21,11 @@ export const ViewHeaderContainer = styled.div`
 `
 
 export const Writer = styled.div`
-  width: 20%;
+  width: 10%;
 `
 
 export const Title = styled.div`
-  width: 50%;
+  width: 60%;
   font-weight: 600;
 `
 

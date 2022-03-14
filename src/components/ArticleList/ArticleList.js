@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { dummyArticleList } from '../../dummy/dummyArticleList';
 import { useHistory } from 'react-router-dom';
-import { ArticleListContainer, Id, Title, Writer, Date } from './ArticleListStyle'
+import { ArticleListContainer, Id, Title, Writer, Date, ViewCnt } from './ArticleListStyle'
 
-export const ArticleList = ({ articleList}) => {
+export const ArticleList = ({ articleList }) => {
   const history = useHistory()
   
   console.log(articleList)
@@ -19,6 +19,7 @@ export const ArticleList = ({ articleList}) => {
           title: e.title,
           writer: e.writer,
           content: e.content,
+          viewCnt: e.viewCnt,
           createdAt: e.createdAt
         }
       }
@@ -42,6 +43,9 @@ export const ArticleList = ({ articleList}) => {
         <Date>
           {data.createdAt}
         </Date>
+        <ViewCnt>
+          {data.viewCnt}
+        </ViewCnt>
       </ArticleListContainer>
     )
   })

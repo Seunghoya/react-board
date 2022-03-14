@@ -5,6 +5,7 @@ import { ArticleList } from '../../components/ArticleList/ArticleList'
 import { BoardHead } from '../../components/BoardHead/BoardHead';
 import { Button } from '../../components/Button/Button';
 import { BoardContainer, ButtonContainer } from './BoardStyle';
+import { Search } from '../../components/Search/Search';
 
 export const Board = () => {
   const history = useHistory()
@@ -34,6 +35,7 @@ export const Board = () => {
   return (
     <BoardContainer>
       <h1>게시판</h1>
+      <Search/>
       <BoardHead/>
       <ArticleList articleList={articleList}/>
       <ButtonContainer>
