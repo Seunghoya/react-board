@@ -1,11 +1,16 @@
 import React from 'react';
-import { ModalContainer } from './ModalStyle';
+import { ModalBackground, 
+  ModalContainer } from './ModalStyle';
+import { Button } from '../Button/Button';
 
-export const Modal = () => {
+export const Modal = ({ errorMessage, modalOpenHandler }) => {
 
   return (
-    <ModalContainer>
-      
-    </ModalContainer>
+    <ModalBackground onClick={modalOpenHandler}>
+      <ModalContainer onClick={(e) => e.stopPropagation()}>
+        {errorMessage}
+        <Button onClick={modalOpenHandler}>닫기</Button>
+      </ModalContainer>
+    </ModalBackground>
   )
 }
