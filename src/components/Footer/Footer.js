@@ -8,7 +8,6 @@ export const Footer = () => {
   return (
     <FooterContainer>
       <div>
-        <div>Link</div>
         <a href='https://github.com/Seunghoya' target='_blank' rel='noreferrer'>
           <AiFillGithub /> Github
         </a>

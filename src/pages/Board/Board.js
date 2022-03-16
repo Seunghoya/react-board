@@ -6,11 +6,12 @@ import { BoardHead } from '../../components/BoardHead/BoardHead';
 import { Button } from '../../components/Button/Button';
 import { BoardContainer, ButtonContainer } from './BoardStyle';
 import { Search } from '../../components/Search/Search';
-
+import { Pagination } from '../../components/Pagination/Pagination';
 export const Board = () => {
   const history = useHistory()
   const [articleList, setArticleList] = useState([])
   const [page, Setpage] = useState(1)
+  const [articlesPerPage, setArticlesPerPage] = useState(10)
 
   const writeButtonClick = () => {
     // console.log('작성하기 버튼 클릭')
@@ -31,6 +32,16 @@ export const Board = () => {
     getArticleList()
   }, [])
 
+  const lastIndex = page * articlesPerPage
+  const firstIndex = lastIndex - articlesPerPage
+
+  const currentArticle = (i) => {
+    let currentArticle = 0
+    currentArticle = i.slice(firstIndex, lastIndex)
+
+    return currentArticle
+  }
+
   return (
     <BoardContainer>
       <Search 
@@ -38,10 +49,13 @@ export const Board = () => {
         setArticleList={setArticleList}
       />
       <BoardHead/>
-      <ArticleList articleList={articleList}/>
-      <ButtonContainer>
-        <Button onClick={writeButtonClick}>작성</Button>
-      </ButtonContainer>
+      <ArticleList articleList={currentArticle(articleList)}/>
+      <div>
+        <Pagination articlesPerPage={articlesPerPage} totalArticles={articleList.length} Setpage={Setpage}/>
+        <ButtonContainer>
+          <Button onClick={writeButtonClick}>작성</Button>
+        </ButtonContainer>
+      </div>
     </BoardContainer>
   )
 }
