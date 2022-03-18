@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import { Button } from '../../components/Button/Button';
+import { Comment } from '../../components/Comment/Comment';
 import { ViewContainer, 
   ViewHeaderContainer, 
   Writer,
@@ -66,19 +67,7 @@ export const ViewArticle = () => {
       <ContentContainer>
         <div>{ArticleDate.content}</div>
       </ContentContainer>
-      <div>
-        <input placeholder='이름'></input>
-        <input placeholder='비밀번호'></input>
-      </div>
-      <div>
-        <textarea placeholder='내용'></textarea>
-      </div>
-      <div>
-        <div>
-          <div>아이디</div>
-          <div>내용</div>
-        </div>
-      </div>
+      <Comment ArticleDate={ArticleDate}/>
       <ButtonContainer>
         <Button style={{'margin':'10px'}} onClick={goback}>목록으로</Button>
         <Button style={{'margin':'10px'}} onClick={reqEdit}>수정</Button>
