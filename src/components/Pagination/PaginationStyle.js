@@ -28,10 +28,7 @@ export const PageLi = styled.li`
     color: white;
     background-color: #263a6c;
   }
-  &:focus::after {
-    color: white;
-    background-color: #263a6c;
-  }
+
 `;
 
 export const PageSpan = styled.span`

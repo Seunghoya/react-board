@@ -10,8 +10,8 @@ import { Pagination } from '../../components/Pagination/Pagination';
 export const Board = () => {
   const history = useHistory()
   const [articleList, setArticleList] = useState([])
-  const [page, Setpage] = useState(1)
-  const [articlesPerPage, setArticlesPerPage] = useState(10)
+  const [page, Setpage] = useState(0)
+  const [articlesPerPage, setArticlesPerPage] = useState(20)
 
   const writeButtonClick = () => {
     // console.log('작성하기 버튼 클릭')
@@ -32,16 +32,24 @@ export const Board = () => {
     getArticleList()
   }, [])
 
-  const lastIndex = page * articlesPerPage
-  const firstIndex = lastIndex - articlesPerPage
+  const articlesLen = articleList.length
+  const lastIndex = articlesLen - (page * articlesPerPage)
+  let firstIndex = lastIndex - articlesPerPage
 
   const currentArticle = (i) => {
     let currentArticle = 0
+    console.log(firstIndex)
+    if (firstIndex < 0 ) firstIndex = 0
+
     currentArticle = i.slice(firstIndex, lastIndex)
 
     return currentArticle
   }
 
+  const clickHandler = (page) => {
+    console.log('클릭 이벤트')
+    Setpage(page)
+  }
   return (
     <BoardContainer>
       <Search 
@@ -51,7 +59,7 @@ export const Board = () => {
       <BoardHead/>
       <ArticleList articleList={currentArticle(articleList)}/>
       <div>
-        <Pagination articlesPerPage={articlesPerPage} totalArticles={articleList.length} Setpage={Setpage}/>
+        <Pagination articlesPerPage={articlesPerPage} totalArticles={articleList.length} Setpage={clickHandler}/>
         <ButtonContainer>
           <Button onClick={writeButtonClick}>작성</Button>
         </ButtonContainer>
