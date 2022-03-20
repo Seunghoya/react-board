@@ -24,7 +24,7 @@ export const Comment = ({ ArticleDate }) => {
     })
   }
   const clickHandler = () => {
-    axios.post(`http://localhost:4000/comment?id=${ArticleDate.id}`, comment)
+    axios.post(`http://localhost:4000/comment/${ArticleDate.id}`, comment)
       .then((data) => {
         document.location.reload()
         console.log(data)
